@@ -12,7 +12,7 @@ class Asteroid(pygame.sprite.Sprite):
         self.movex = y
         self.image = pygame.image.load('astroid.png')
         self.image = pygame.transform.smoothscale(self.image, (60, 60))
-        self.speed = pygame.math.Vector2(0, 0)
+        self.speed = pygame.math.Vector2(1, 0)
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -21,7 +21,7 @@ class Asteroid(pygame.sprite.Sprite):
     def move(self):
         screen_info = pygame.display.Info()
         size = (width, height) = (int(screen_info.current_w), int(screen_info.current_h))
-        self.rect.x +=
+        self.rect.x += self.speed[0]
         if self.rect.left < 0:
             self.speed[0] *= -1
         if self.rect.right > width:
